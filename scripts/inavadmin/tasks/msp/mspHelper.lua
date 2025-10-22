@@ -7,6 +7,18 @@ local inavadmin = require("inavadmin")
 
 local mspHelper = {}
 
+-- CRC8 DVB-S2 used by MSP v2
+function mspHelper.crc8_dvb_s2(crc, a)
+    crc = bit32 and bit32.bxor(crc, a) or (crc ~ a)
+    for _ = 1, 8 do
+        local msb = (crc & 0x80) ~= 0
+        crc = (crc << 1) & 0xFF
+        if msb then crc = (crc ~ 0xD5) & 0xFF end
+    end
+    return crc & 0xFF
+end
+
+
 mspHelper.readUInt = function(buf, numBytes, byteorder)
     local offset = buf.offset or 1
     if not buf[offset] or not buf[offset + numBytes - 1] then return nil end

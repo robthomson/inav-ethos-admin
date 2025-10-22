@@ -7,7 +7,7 @@ local inavadmin = require("inavadmin")
 local core = assert(loadfile("SCRIPTS:/" .. inavadmin.config.baseDir .. "/tasks/msp/api_core.lua"))()
 
 local API_NAME = "PID"
-local MSP_API_CMD_READ = 0x2030
+local MSP_API_CMD_READ = 0x1001
 local MSP_API_CMD_WRITE = 0x2031
 local MSP_REBUILD_ON_WRITE = false
 
