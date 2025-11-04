@@ -1,9 +1,11 @@
 --[[
-  Copyright (C) 2025 Rotorflight Project
+  Copyright (C) 2025 Inav Project
   GPLv3 — https://www.gnu.org/licenses/gpl-3.0.en.html
 ]] --
 
 local inavadmin = require("inavadmin")
+
+local MSP_PROTOCOL_VERSION = inavadmin.config.mspProtocolVersion or 1
 
 local arg = {...}
 local config = arg[1]
@@ -32,13 +34,16 @@ msp.protocol.mspPoll = transport.mspPoll
 
 msp.mspQueue = assert(loadfile("SCRIPTS:/" .. inavadmin.config.baseDir .. "/tasks/msp/mspQueue.lua"))()
 msp.mspQueue.maxRetries = msp.protocol.maxRetries
-msp.mspQueue.loopInterval = 0.025
+msp.mspQueue.loopInterval = 0.031
 msp.mspQueue.copyOnAdd = true
 msp.mspQueue.timeout = 2.0
 
 msp.mspHelper = assert(loadfile("SCRIPTS:/" .. inavadmin.config.baseDir .. "/tasks/msp/mspHelper.lua"))()
 msp.api = assert(loadfile("SCRIPTS:/" .. inavadmin.config.baseDir .. "/tasks/msp/api.lua"))()
 msp.common = assert(loadfile("SCRIPTS:/" .. inavadmin.config.baseDir .. "/tasks/msp/common.lua"))()
+msp.common.setProtocolVersion(MSP_PROTOCOL_VERSION or 1)  
+msp.common.setLogging("off", {hexdump = true})
+
 
 local delayDuration = 2
 local delayStartTime = nil
