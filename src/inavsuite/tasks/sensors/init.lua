@@ -5,5 +5,6 @@
 
 local inavsuite = require("inavsuite")
 
-local init = {interval = 0.52, script = "telemetry.lua", linkrequired = false, connected = false, spreadschedule = true, simulatoronly = false}
+local init = {interval = 0.23, script = "sensors.lua", linkrequired = true, spreadschedule = false, simulatoronly = false, connected = true}
+
 return init

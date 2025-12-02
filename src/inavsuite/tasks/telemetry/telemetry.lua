@@ -1,5 +1,5 @@
 --[[
-  Copyright (C) 2025 Rotorflight Project
+  Copyright (C) 2025 Inav Project
   GPLv3 — https://www.gnu.org/licenses/gpl-3.0.en.html
 ]] --
 
