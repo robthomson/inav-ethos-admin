@@ -17,7 +17,7 @@ local config = {
     icon_logtool = lcd.loadMask("app/gfx/icon_logtool.png"),
     icon_unsupported = lcd.loadMask("app/gfx/unsupported.png"),
     version = {major = 0, minor = 0, revision = 0, suffix = "20251010"},
-    ethosVersion = {1, 6, 2},
+    ethosVersion = {1, 6, 3},
     supportedMspApiVersion = {"2.04", "2.05", "2.06"},
     baseDir = "inavsuite",
     preferences = "inavsuite.user",
