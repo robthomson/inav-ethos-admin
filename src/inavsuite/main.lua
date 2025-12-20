@@ -18,7 +18,7 @@ local config = {
     icon_unsupported = lcd.loadMask("app/gfx/unsupported.png"),
     version = {major = 0, minor = 0, revision = 0, suffix = "20251010"},
     ethosVersion = {1, 6, 2},
-    supportedMspApiVersion = {"2.04", "2.05"},
+    supportedMspApiVersion = {"2.04", "2.05", "2.06"},
     baseDir = "inavsuite",
     preferences = "inavsuite.user",
     defaultRateProfile = 4,
